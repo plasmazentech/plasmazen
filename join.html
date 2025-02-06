@@ -4,185 +4,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Join the Team - PlasmaZen Careers</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            box-sizing: border-box;
-            background-color: #f7f7f7;
-            color: #333;
-            scroll-behavior: smooth;
-        }
-
-        /* Navigation Bar */
-        nav {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: white;
-            padding: 15px 20px;
-            color: #333;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-        }
-
-        .menu {
-            display: block;
-        }
-
-        /* Tight spacing for the header */
-        @media (max-width: 767px) {
-            nav {
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                padding: 0;
-                margin: 0;
-            }
-
-            .logo {
-                padding-left: 0px;
-                margin: 0;
-            }
-
-            .menu {
-                display: grid;
-                grid-template-columns: repeat(2, 1fr);
-                grid-gap: 1px;
-                justify-items: center;
-                align-items: center;
-                margin-left: 0px;
-                padding: 0;
-            }
-
-            nav a {
-                display: block;
-                width: 100%;
-                text-align: center;
-                padding: 0px 0;
-                margin: 0;
-                background-color: #fff;
-                border-radius: 10px;
-                box-shadow: none;
-            }
-
-                nav a:hover {
-                    background-color: #f0f0f0;
-                }
-        }
-
-        /* Existing styles for larger screens */
-        @media (min-width: 768px) {
-            .menu {
-                display: flex;
-                justify-content: flex-end;
-                gap: 20px;
-                padding-right: 30px;
-                padding-left: 20px;
-            }
-        }
-
-        nav a {
-            color: #333;
-            margin: 0 20px;
-            text-decoration: none;
-            font-size: 1rem;
-            font-weight: bold;
-            letter-spacing: 0.05em;
-            position: relative;
-            padding-bottom: 5px;
-            transition: color 0.3s ease;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background-color: #4CAF50;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.3s ease;
-        }
-
-        nav a:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        nav a:hover {
-            color: #4CAF50;
-        }
-
-        /* Main Section */
-        .main {
-            padding: 120px 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .main h1 {
-            font-size: 3rem;
-            color: #4CAF50;
-            margin-bottom: 40px;
-        }
-
-        .main p {
-            font-size: 1.2rem;
-            line-height: 1.8;
-            color: #555;
-            margin-bottom: 40px;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
+    <link rel="stylesheet" href="styles.css">
+</head>
+<style>
         /* Job Listing Container */
         .job-listing {
             margin-bottom: 30px;
         }
 
+        /* Job Header */
         .job-header {
             background-color: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             justify-content: space-between;
-            align-items: center;
+            align-items: flex-start; /* Align the text items properly */
+            flex-wrap: wrap; /* Allow wrapping for responsiveness */
         }
 
         .job-header:hover {
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-            background-color: #f0f4c3;
+            background: linear-gradient(120deg, #EADCF8 0%, #D9E4FC 100%);
         }
 
         .job-header h2 {
             font-size: 1.8rem;
-            color: #4CAF50;
+            color: #845CE2;
             margin: 0;
+            padding-right: 20px; /* Add space between job title and location */
+            flex: 1; /* Allow title to take available space */
         }
 
         .job-header h3 {
             font-size: 1.2rem;
             color: #333;
-            margin: 10px 0;
+            margin: 0;
+            padding-left: 10px; /* Add space between location and title */
         }
 
         /* Arrow Icon */
         .arrow-icon {
             font-size: 1.5rem;
             transition: transform 0.3s ease;
+            margin-left: 12px; 
         }
 
         .rotate {
@@ -196,8 +64,7 @@
             padding: 30px;
             margin-top: 10px;
             border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            text-align: left; /* Left-align the job descriptions */
+            text-align: left;
         }
 
         .job-details ul {
@@ -220,13 +87,13 @@
 
         .job-details h3 {
             font-size: 1.4rem;
-            color: #4CAF50;
+            color: #845CE2;
             margin-bottom: 10px;
         }
 
         /* Apply Section */
         .apply-section {
-            background-color: #f0f4c3;
+            background: linear-gradient(120deg, #EADCF8 0%, #D9E4FC 100%);
             padding: 20px;
             border-radius: 10px;
             text-align: center;
@@ -235,7 +102,7 @@
 
         .apply-section h2 {
             font-size: 2rem;
-            color: #4CAF50;
+            color: #845CE2;
             margin-bottom: 20px;
         }
 
@@ -249,44 +116,30 @@
         .apply-section a {
             display: inline-block;
             padding: 15px 30px;
-            background-color: #4CAF50;
+            background-color: #845CE2;
             color: #fff;
             font-size: 1.2rem;
             font-weight: bold;
             text-decoration: none;
             border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            transition: background-color 0.3s ease;
         }
 
         .apply-section a:hover {
-            background-color: #2f8a35;
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
-        }
-
-        /* Footer */
-        footer {
-            padding: 20px;
-            background: white;
-            color: #333;
-            text-align: center;
-            font-size: 0.9rem;
-            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
-            margin-top: 60px;
+            background-color: #614196;
         }
 
         /* Responsive Design */
-        @media (max-width: 768px) {
-            .main h1 {
-                font-size: 2.5rem;
-            }
+        @media (max-width: 900px) {
 
             .job-header h2 {
                 font-size: 1.6rem;
+                padding-right: 10px; /* Adjust padding on smaller screens */
             }
 
-            .job-details h3 {
-                font-size: 1.3rem;
+            .job-header h3 {
+                font-size: 1.1rem;
+                margin-top: 10px; /* Ensure better spacing on smaller screens */
             }
 
             .apply-section h2 {
@@ -296,51 +149,96 @@
             .apply-section p {
                 font-size: 1.1rem;
             }
+
+            .contact-info {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .contact-info-container {
+                margin-bottom: 15px;
+            }
+
+            .contact-info a {
+                display: flex;
+                align-items: center;
+                font-size: 1rem;
+            }
+
+            .contact-form input, .contact-form textarea {
+                width: 100%;
+                padding: 10px;
+                margin: 5px 0;
+            }
+
+            .contact-form button {
+                padding: 12px 20px;
+                font-size: 1.1rem;
+                width: 100%;
+            }
         }
-    </style>
 
-    <script>
-        // Job Details Toggle Script
-        document.addEventListener("DOMContentLoaded", function () {
-            const jobHeaders = document.querySelectorAll(".job-header");
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding-bottom: 40px;
+            background: white;
+        }
+</style>
 
-            jobHeaders.forEach(header => {
-                header.addEventListener("click", function () {
-                    const jobDetails = this.nextElementSibling;
-                    const arrow = this.querySelector(".arrow-icon");
-                    const isOpen = jobDetails.style.display === "block";
+<script>
+    // Job Details Toggle Script
+    document.addEventListener("DOMContentLoaded", function () {
+        const jobHeaders = document.querySelectorAll(".job-header");
 
-                    // Close all open job details
-                    document.querySelectorAll(".job-details").forEach(detail => {
-                        detail.style.display = "none";
-                    });
+        jobHeaders.forEach(header => {
+            header.addEventListener("click", function () {
+                const jobDetails = this.nextElementSibling;
+                const arrow = this.querySelector(".arrow-icon");
+                const isOpen = jobDetails.style.display === "block";
 
-                    // Rotate all arrows back to original position
-                    document.querySelectorAll(".arrow-icon").forEach(icon => {
-                        icon.classList.remove("rotate");
-                    });
-
-                    // Toggle the clicked job's details and arrow rotation
-                    if (!isOpen) {
-                        jobDetails.style.display = "block";
-                        arrow.classList.add("rotate");
-                    }
+                // Close all open job details
+                document.querySelectorAll(".job-details").forEach(detail => {
+                    detail.style.display = "none";
                 });
+
+                // Rotate all arrows back to original position
+                document.querySelectorAll(".arrow-icon").forEach(icon => {
+                    icon.classList.remove("rotate");
+                });
+
+                // Toggle the clicked job's details and arrow rotation
+                if (!isOpen) {
+                    jobDetails.style.display = "block";
+                    arrow.classList.add("rotate");
+                }
             });
         });
-    </script>
-</head>
-<body>
+    });
+</script>
 
+<body>
     <!-- Navigation -->
     <nav>
-        <div class="logo">
-            <a href="index.html">PlasmaZen</a>
+        <div class="nav-left">
+            <img src="pz_logo.png" alt="PlasmaZen Logo" class="logo-img">
+            <a href="index.html" class="logo-text">PlasmaZen</a>
         </div>
+
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+
         <div class="menu">
+            <a href="index.html">Home</a>
             <a href="about.html">About</a>
             <a href="technology.html">Technology</a>
-            <a href="applications.html">Applications</a>
+            <a href="applications.html">Services</a>
             <a href="contact.html">Contact</a>
         </div>
     </nav>
@@ -355,7 +253,7 @@
         <div class="job-listing">
             <div class="job-header">
                 <h2>Embedded Systems Engineer</h2>
-                <h3>Location: Ahmedabad, Gujarat</h3>
+                <h3>Location: Ahmedabad,<br>Gujarat</h3>
                 <span class="arrow-icon">&#9654;</span> <!-- Arrow icon -->
             </div>
             <div class="job-details">
@@ -389,7 +287,7 @@
         <div class="job-listing">
             <div class="job-header">
                 <h2>Power Electronics Engineer</h2>
-                <h3>Location: Ahmedabad, Gujarat</h3>
+                <h3>Location: Ahmedabad,<br>Gujarat</h3>
                 <span class="arrow-icon">&#9654;</span> <!-- Arrow icon -->
             </div>
             <div class="job-details">
@@ -400,7 +298,6 @@
                         <li>Integrate power electronics with DSP and FPGA control algorithms for real-time optimization.</li>
                         <li>Optimize power systems for power density, thermal performance, and fault tolerance, ensuring safety compliance.</li>
                         <li>Conduct simulations and validation using Monte Carlo analysis and thermal modeling.</li>
-
                     </ul>
                     <h3>Required Skills and Experience:</h3>
                     <ul>
@@ -425,10 +322,69 @@
         </div>
     </section>
 
+    <section class="contact-us">
+        <div>
+            <h2>Contact Us</h2>
+            <p>We'd love to hear from you! Have questions about our technology or how it can benefit your business? Get in touch with us today.</p>
+
+            <div class="contact-info">
+                <div class="contact-info-container">
+                    <a href="mailto:info@plasmazen.com">
+                        <i class="fa fa-envelope" style="font-size:24px;color:#845EC2;"></i>
+                        <span style="padding-left:8px; font-size: 1.2em;">inquiries@plasmazen.com</span>
+                    </a>
+                </div>
+
+                <div class="contact-info-container">
+                    <a href="tel:+919909825386">
+                        <i class="fa fa-phone" style="font-size:24px;color:#845EC2;"></i>
+                        <span style="padding-left:20px; font-size: 1.1em;">+91 99098 25386</span>
+                    </a>
+                </div>
+
+                <div class="contact-info-container">
+                    <a href="#">
+                        <i class="fa fa-map-marker" style="font-size:24px;color:#845EC2;"></i>
+                        <span style="padding-left:24px; font-size: 1.1em;">PlasmaZen Headquarters, Shapath 1, Suite # 1296, SG Highway, Bodakdev, Ahmedabad, Gujarat, India - 380054</span>
+                    </a>
+                </div>
+
+                <a href="https://www.linkedin.com/company/plasmazen/" target="_blank">
+                    <img class="linkedin-icon" src="images/linkedin-icon.png" alt="LinkedIn" style="width: 36px;  /* Set the width to the desired size */
+                    height: 36px; object-fit: contain;">
+                </a> 
+                <a href="index.html">Home</a> 
+                <a href="about.html">About</a>
+                <a href="technology.html">Technology</a>
+                <a href="applications.html">Services</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+
+        <div>
+            <div class="contact-form">
+                <h2>Get in Touch</h2>
+                <form action="#" method="post">
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Message:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+    
     <!-- Footer -->
     <footer>
         &copy; 2024 PlasmaZen. All Rights Reserved.
     </footer>
 
+    <script src="script.js"></script>
 </body>
 </html>

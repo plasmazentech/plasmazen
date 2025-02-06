@@ -4,129 +4,21 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="styles.css">
         <title>PlasmaZen - Innovating with Non-Thermal Plasma</title>
+    </head>
         <style>
-            body, html {
-                margin: 0;
-                padding: 0;
-                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-                box-sizing: border-box;
-                background-color: #fff;
-                color: #333;
-            }
-
-            /* Navigation Bar */
-            nav {
-                position: fixed;
-                top: 0;
-                width: 100%;
-                background-color: white;
-                padding: 15px 20px;
-                color: #333;
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-                z-index: 1000;
-            }
-
-            /* Tight spacing for the header */
-            @media (max-width: 767px) {
-                nav {
-                    display: flex;
-                    align-items: center;
-                    justify-content: flex-start;      
-                    padding: 0;
-                    margin: 0;
-                }
-
-                .logo {
-                    padding-left: 0px; 
-                    margin: 0; 
-                }
-
-                .menu {
-                    display: grid;
-                    grid-template-columns: repeat(2, 1fr);
-                    grid-gap: 1px;
-                    justify-items: center;
-                    align-items: center;
-                    margin-left: 0px;
-                    padding: 0;
-                }
-
-                nav a {
-                    display: block;
-                    width: 100%; 
-                    text-align: center; 
-                    padding: 0; 
-                    margin: 0; 
-                    background-color: #fff; 
-                    border-radius: 8px;
-                    box-shadow: none; 
-                }
-
-                    nav a:hover {
-                        background-color: #f0f0f0; 
-                    }
-            }
-
-            /* Existing styles for larger screens */
-            @media (min-width: 768px) {
-                .menu {
-                    display: flex;
-                    justify-content: flex-end;
-                    gap: 20px;
-                    padding-right: 30px;
-                    padding-left: 20px;
-                }
-            }
-
-
-            nav a {
-                color: #333;
-                margin: 0 20px;
-                text-decoration: none;
-                font-size: 1rem;
-                font-weight: bold;
-                letter-spacing: 0.05em;
-                position: relative; /* Relative for underline effect */
-                padding-bottom: 5px;
-                transition: color 0.3s ease;
-            }
-
-                nav a::after {
-                    content: '';
-                    position: absolute;
-                    bottom: 0;
-                    left: 0;
-                    right: 0;
-                    height: 2px;
-                    background-color: #4CAF50;
-                    transform: scaleX(0); /* Start with no underline */
-                    transform-origin: right;
-                    transition: transform 0.3s ease; /* Smooth transition */
-                }
-
-                nav a:hover::after {
-                    transform: scaleX(1); /* Full underline on hover */
-                    transform-origin: left;
-                }
-
-                nav a:hover {
-                    color: #4CAF50; /* Change text color on hover */
-                }
-
             /* Hero Section */
             .hero {
-                background-image: url('images/back.jpg');
+                background-image: url('pz_device.jpg');
                 background-size: cover;
                 background-position: center;
                 height: 100vh;
                 display: flex;
-                justify-content: center;
+                justify-content: left;
                 align-items: center;
-                text-align: center;
+                text-align: left;
                 color: white;
                 position: relative;
                 z-index: 1;
@@ -152,34 +44,34 @@
                     font-size: 4rem;
                     letter-spacing: 0.1em;
                     margin: 0;
-                    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8); /* Glow effect */
+                    text-shadow: 0 0 15px rgba(255, 255, 255, 0.5); /* Glow effect */
                 }
 
                 .hero p {
                     font-size: 1.5rem;
-                    margin: 20px 0;
-                    text-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Subtle glow effect */
+                    text-shadow: 0 0 10px rgba(255, 255, 255, 0.4); /* Subtle glow effect */
                 }
 
                 .hero button {
-                    background-color: #4CAF50;
+                    background-color: #845CE5;
                     border: none;
                     padding: 15px 30px;
                     color: white;
                     font-size: 1.2rem;
                     border-radius: 5px;
                     cursor: pointer;
+                    margin-left: 35px;
                     transition: background-color 0.3s ease, box-shadow 0.3s ease;
                 }
 
                     .hero button:hover {
-                        background-color: #45a049;
+                        background-color: #614196;
                         box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
                     }
 
 
             /* Mobile styles for Hero Section */
-            @media (max-width: 767px) {
+            @media (max-width: 900px) {
                 .hero h1 {
                     font-size: 2.5rem; /* Smaller size for mobile */
                     padding: 0 35px;
@@ -213,13 +105,13 @@
             }
 
 
-            @media (max-width: 1024px) {
+            @media (max-width: 900px) {
                 .quick-link-card {
                     width: 45%; /* Adjusts width for medium screens */
                 }
             }
 
-            @media (max-width: 768px) {
+            @media (max-width: 900px) {
                 .quick-link-card {
                     width: 100%; /* Full width on smaller screens */
                 }
@@ -232,7 +124,7 @@
             }
 
             .quick-link-card a {
-                color: #4CAF50;
+                color: #845CE2;
                 text-decoration: none;
                 font-size: 1.2rem;
                 font-weight: bold;
@@ -248,19 +140,73 @@
                 font-size: 0.9rem;
                 box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
             }
+
+            .container_box {
+                display: flex;
+                justify-content: center; /* Center aligns boxes horizontally */
+                align-items: center; /* Aligns items vertically */
+                gap: 20px; /* Even spacing between boxes */
+                flex-wrap: wrap; /* Ensures responsiveness */
+                width: 100%; /* Uses full width */
+                text-align: center;
+            }
+
+            .info-box {
+                background: #845CE2;
+                color: white;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                width: 300px; /* Fixed width for uniformity */
+                height: 300px; /* Fixed height */
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                object-fit: contain;
+                margin-bottom: 10px;
+            }
+
+            .info-box p {
+                font-size: 1.8rem;
+                letter-spacing: 1px;
+                margin: 10px 0;
+            }
+
+            .info-box img {
+                width: 100px; /* Adjust image size */
+                margin-bottom: 10px;
+            }
+
+            .info-box:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            }
+
         </style>
     </head>
     <body>
 
         <!-- Navigation -->
         <nav>
-            <div class="logo">
-                <a href="index.html">PlasmaZen</a>
+            <div class="nav-left">
+                <img src="pz_logo.png" alt="PlasmaZen Logo" class="logo-img">
+                <a href="index.html" class="logo-text">PlasmaZen</a>
             </div>
+
+            <div class="hamburger">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+
             <div class="menu">
+                <a href="index.html">Home</a>
                 <a href="about.html">About</a>
                 <a href="technology.html">Technology</a>
-                <a href="applications.html">Applications</a>
+                <a href="applications.html">Services</a>
                 <a href="contact.html">Contact</a>
             </div>
         </nav>
@@ -268,29 +214,108 @@
         <!-- Hero Section -->
         <section class="hero">
             <div>
-                <h1>Innovate with Cold Plasma Technology</h1>
-                <p>Explore the limitless possibilities of non-thermal plasma solutions. Hi tubs</p>
-                <button onclick="window.location.href='technology.html'">Learn More</button>
+                <h1 style="padding-left: 35px;">Innovate with<br>Our Cold Plasma <br>Technology</h1>
+                <p style="padding-left: 35px;">Explore the limitless possibilities of <br>non-thermal plasma solutions</p>
+                <button onclick="window.location.href='applications.html'">Learn More</button>
             </div>
         </section>
 
-        <!-- Quick Links -->
-        <section class="quick-links">
-            <div class="quick-link-card">
-                <a href="about.html">About Us</a>
+        <section>
+            <h2 class="section-title" style="font-size: 2.3em;">Our Services</h2>
+            <div class="section-content fade-in">
+                <div class="section-content fade-in">
+                <h2 style="text-align: center;">Agritcultural Plasma Treatment</h2>
+                <p style="font-size: 1.25rem; text-align: center;">Enhancing seed germination and extending produce shelf life by eliminating microbes, reducing waste, and improving crop productivity.</p>
+                
+                <h2 style="text-align: center;">Plasma Surface Sterilization</h2>
+                <p style="font-size: 1.25rem; text-align: center;">Fast, chemical-free sterilization for surfaces, ensuring safe and efficient decontamination.</p>
+                </div>
             </div>
-            <div class="quick-link-card">
-                <a href="applications.html">Applications</a>
-            </div>
-            <div class="quick-link-card">
-                <a href="contact.html">Get In Touch</a>
+
+
+
+            <div class="container_box">
+                <div class="info-box">
+                    <img src="eco-friendly.svg" alt="Eco-Friendly" style="margin-bottom: 15px;;">
+                    <p><strong>Residue-Free</strong> and <br><strong>Eco-Friendly</strong></p>
+                </div>
+                <div class="info-box">
+                    <img src="effective.svg" alt="Effective" style="margin-top:10px;">
+                    <p>Achieves <strong>99.999%</strong> microbial kill rate <strong>within seconds</strong></p>
+                </div>
+                <div class="info-box">
+                    <img src="time.svg" alt="Time Efficient" style="margin-top:35px;">
+                    <p><strong>Cheaper runtime</strong> than conventional decontamination systems</p>
+                </div>
             </div>
         </section>
 
+        <section class="contact-us">
+            <div>
+                <h2>Contact Us</h2>
+                <p>We'd love to hear from you! Have questions about our technology or how it can benefit your business? Get in touch with us today.</p>
+    
+                <div class="contact-info">
+                    <div class="contact-info-container">  <div class="contact-info">
+                        <a href="mailto:info@plasmazen.com">
+                            <i class="fa fa-envelope" style="font-size:24px;color:#845EC2;"></i>
+                            <t style= "padding-left:8px; font-size: 1.2em;"></t>inquiries@plasmazen.com</t>
+                        </a>
+                        </div>
+                    </div>
+    
+                    <div class="contact-info-container">  <div class="contact-info">
+                        <a href="tel:+919909825386">
+                            <i class="fa fa-phone" style="font-size:24px;color:#845EC2;"></i>
+                            <t style= "padding-left:20px; font-size: 1.1em;">+91 99098 25386</t>
+                        </a>
+                        </div>
+                    </div>
+    
+                    <div class="contact-info-container">  <div class="contact-info">
+                        <a href="#">
+                            <i class="fa fa-map-marker" style="font-size:24px;color:#845EC2;"></i>
+                            <t style= "padding-left:24px; font-size: 1.1em;">PlasmaZen Headquarters, Shapath 1, Suite # 1296, SG Highway, Bodakdev, Ahmedabad, Gujarat, India - 380054</t>
+                        </a>
+                        </div>
+                    </div>
+                    <a href="https://www.linkedin.com/company/plasmazen/" target="_blank">
+                        <img class="linkedin-icon" src="images/linkedin-icon.png" alt="LinkedIn" style="width: 36px;  /* Set the width to the desired size */
+                        height: 36px; object-fit: contain;">
+                    </a> 
+                    <a href="index.html">Home</a> 
+                    <a href="about.html">About</a>
+                    <a href="technology.html">Technology</a>
+                    <a href="applications.html">Services</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+            </div>
+    
+            <div>
+                <div class="contact-form">
+                    <h2>Get in Touch</h2>
+                    <form action="#" method="post">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+    
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+    
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+    
+                        <button type="submit">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+        
         <!-- Footer -->
         <footer>
             &copy; 2024 PlasmaZen. All Rights Reserved.
         </footer>
+    
+        <script src="script.js"></script>
 
     </body>
     </html>

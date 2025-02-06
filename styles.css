@@ -1,0 +1,537 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #333;
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* Hides horizontal overflow */
+}
+
+/* Optionally, ensure no overflow on other elements */
+* {
+  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+}
+
+/* Navigation Bar */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: white;
+  padding: 15px 20px;
+  color: #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.menu {
+  display: block;
+}
+
+/* Tight spacing for the header */
+@media (max-width: 900px) {
+  nav {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0;
+      margin: 0;
+  }
+
+  .logo {
+      padding-left: 0px;
+      margin: 0;
+  }
+
+  .menu {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-gap: 1px;
+      justify-items: center;
+      align-items: center;
+      margin-left: 0px;
+      padding: 0;
+  }
+
+  nav a {
+      display: block;
+      width: 100%;
+      text-align: center;
+      padding: 0px 0;
+      margin: 0;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: none;
+  }
+
+      nav a:hover {
+          background-color: #f0f0f0;
+      }
+}
+
+/* Mobile Menu Styles */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  padding: 15px;
+  margin-right: 10px; /* Add right margin for spacing */
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #333;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+.menu.active {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 60px; /* Adjust as needed */
+  right: 0; /* Position on the right */
+  width: 40%; 
+  background-color: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  z-index: 1001;
+}
+
+.menu.active a:hover {
+  background-color: #f0f0f0;
+  color: #845EC2;
+}
+
+.contact-us {
+  background-color: #f8f8f8;
+  padding: 60px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px; /* Add some space between the sections */
+}
+
+.contact-us > div {
+  flex: 1 0 400px; /* Adjust the flex-basis for better responsiveness */
+  padding: 20px;
+  box-sizing: border-box;
+  text-align: left; 
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column; /* Stack vertically */
+  gap: 20px;
+  text-align: left; /* Left-align the text */
+}
+
+.contact-info a {
+  display: flex;
+  align-items: center; /* Ensures icons and text are vertically aligned */
+  gap: 10px; /* Controls the spacing between icon and text */
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem; /* Uniform font size */
+  transition: color 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: #845EC2;
+}
+
+.contact-info svg {
+  width: 24px;
+  height: 24px;
+}
+
+.contact-info-container {
+  margin-bottom: 15px; /* Adds consistent space between different contact methods */
+}
+
+/* Adjust the font sizes of the contact information */
+.contact-info a i {
+  font-size: 24px; /* Size the icons consistently */
+}
+
+.contact-info a t {
+  font-size: 1.2em; /* Uniform font size for text */
+  line-height: 1.5; /* Adjust line height for better text spacing */
+}
+
+/* Add specific margins for text when in the contact-info-container */
+.contact-info-container .contact-info t {
+  padding-left: 10px; /* Add padding to align text with icons */
+}
+
+.contact-form {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.contact-form label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: bold;
+  color: #333;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.contact-form button {
+  background-color: #845EC2;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+  background-color: #614196;
+}
+
+/* Media Query - Corrected Logic */
+@media (max-width: 900px) {
+  nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 10px;
+  }
+
+  .logo {
+      padding-left: 0;
+      margin: 0;
+  }
+
+  .menu {
+      display: none; /* Hide the regular menu */
+  }
+
+  .hamburger {
+      display: block; /* Show the hamburger */
+  }
+
+  nav a {
+      margin: 0;
+  }
+  
+  .contact-us {
+      padding: 40px 15px;
+  }
+
+  .contact-us h2 {
+      font-size: 2rem;
+  }
+  
+  .contact-us > div {
+      flex: 1 1 100%;
+  }
+
+  .contact-info {
+      text-align: left; /* Ensure left alignment on smaller screens */
+  }
+  .contact-info a {
+      font-size: 1rem; /* Slightly smaller font size on mobile */
+  }
+}
+
+/* Styles for larger screens (when hamburger is hidden) */
+@media (min-width: 900px) {
+  .hamburger {
+      display: none; /* Hide the hamburger */
+  }
+  .menu {
+      display: flex; /* Show the menu */
+      justify-content: flex-end;
+      gap: 20px;
+      padding-right: 30px;
+      padding-left: 20px;
+  }
+  .menu a {
+      color: #333;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: bold;
+      letter-spacing: 0.05em;
+      position: relative;
+      padding-bottom: 5px;
+      transition: color 0.3s ease;
+      margin: 0 20px; /* restore margin for larger screens */
+  }
+   .menu a::after { /* restore underline effect for larger screens */
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background-color: #845EC2;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.3s ease;
+  }
+
+  .menu a:hover::after {
+      transform: scaleX(1);
+      transform-origin: left;
+  }
+
+  .menu a:hover {
+      color: #845EC2;
+  }
+}
+
+nav a {
+  color: #333;
+  margin: 0 20px;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: bold;
+  letter-spacing: 0.05em;
+  position: relative;
+  padding-bottom: 5px;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #845EC2;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.3s ease;
+}
+
+nav a:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+nav a:hover {
+  color: #845EC2;
+}
+
+.contact-us h2 {
+  font-size: 2 rem;
+  color: #845EC2;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+  position: relative;
+}
+
+/* Main Section */
+.main {
+  padding: 120px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(120deg, #EADCF8 0%, #D9E4FC 100%);
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  animation: fadeIn 1s ease-out;
+}
+
+.main h1 {
+  font-size: 3rem;
+  color: #845EC2;
+  letter-spacing: 0.1em;
+  margin-bottom: 40px;
+  position: relative;
+  animation: zoomIn 1s ease-out;
+}
+
+.main p, .contact-form p, .contact-info p, .contact-us p {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  transition: color 0.3s ease;
+}
+
+.main p:hover {
+  color: #845EC2;
+}
+
+/* Section Titles (center-aligned with left-to-right underline animation) */
+.section-title {
+  font-size: 2rem;
+  color: #845EC2;
+  margin-bottom: 20px;
+  animation: bounceIn 1.2s ease-out;
+  position: relative;
+  text-align: center; /* Center-aligned */
+  padding-bottom: 5px;
+  display: inline-block;
+  width: 100%;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0; /* Start underline from the left */
+  width: 100%; /* Ensure it covers the whole title */
+  height: 2px;
+  background-color: #845EC2;
+  transform: scaleX(0); /* Start with no scale */
+  transform-origin: left; /* Origin set to the left */
+  transition: transform 0.3s ease;
+}
+
+.section-title:hover::after {
+  transform: scaleX(1); /* Scale to 100% on hover */
+}
+
+/* Section Content */
+.section-content {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  margin-bottom: 40px;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  animation: fadeInUp 1.5s ease-out;
+  transition: color 0.3s ease;
+}
+
+.section-content p:hover {
+  color: #845EC2;
+}
+
+/* Scroll Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Keyframes for Effects */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+@keyframes zoomIn {
+  from {
+      transform: scale(0.8);
+      opacity: 0;
+  }
+  to {
+      transform: scale(1);
+      opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+      transform: scale(0.3);
+      opacity: 0;
+  }
+  50% {
+      transform: scale(1.05);
+      opacity: 1;
+  }
+  70% {
+      transform: scale(0.9);
+  }
+  100% {
+      transform: scale(1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+      opacity: 0;
+      transform: translateY(30px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Footer */
+footer {
+  padding: 20px;
+  background: white;
+  color: #333;
+  text-align: center;
+  font-size: 0.9rem;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+  margin-top: 60px;
+  width: 100%;
+}
+
+.nav-left {
+  display: flex;
+  align-items: center;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+}
+
+.logo-text {
+  color: #333;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .main h1 {
+      font-size: 2.5rem;
+  }
+
+  .section-title {
+      font-size: 1.8rem;
+  }
+
+  .section-content {
+      font-size: 1rem;
+      padding: 0 15px;
+  }
+}
