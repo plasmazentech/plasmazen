@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PlasmaZen - Contact Us</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            padding: 15px 20px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .menu {
+            display: block;
+        }
+
+        /* Tight spacing for the header */
+        @media (max-width: 767px) {
+            nav {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 0;
+                margin: 0;
+            }
+
+            .logo {
+                padding-left: 0px;
+                margin: 0;
+            }
+
+            .menu {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 1px;
+                justify-items: center;
+                align-items: center;
+                margin-left: 0px;
+                padding: 0;
+            }
+
+            nav a {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 0px 0;
+                margin: 0;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: none;
+            }
+
+                nav a:hover {
+                    background-color: #f0f0f0;
+                }
+        }
+
+        /* Existing styles for larger screens */
+        @media (min-width: 768px) {
+            .menu {
+                display: flex;
+                justify-content: flex-end;
+                gap: 20px;
+                padding-right: 30px;
+                padding-left: 20px;
+            }
+        }
+
+        nav a {
+            color: #333;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #4CAF50;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        /* Main Section */
+        .main {
+            padding: 120px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .main h1 {
+            font-size: 3rem;
+            color: #4CAF50;
+            letter-spacing: 0.1em;
+            margin-bottom: 40px;
+            animation: fadeIn 1s ease-out;
+        }
+
+        .main p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+            font-size: 1.2rem;
+        }
+
+        .contact-info div {
+            width: 100%;
+            max-width: 600px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1.3s ease-out;
+        }
+
+        .contact-info div:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .contact-info h2 {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .contact-info p a {
+            color: #4CAF50;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        .contact-info p a:hover {
+            color: #2f8a35;
+        }
+
+        /* Adjust gap for the Address Section */
+        .contact-info div p {
+            margin-bottom: 5px; /* Reduced gap between address lines */
+            line-height: 1.4; /* Tighter line spacing */
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            background: white;
+            color: #333;
+            text-align: center;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+            margin-top: 60px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main h1 {
+                font-size: 2.5rem;
+            }
+
+            .contact-info {
+                gap: 30px;
+            }
+
+            .contact-info div {
+                max-width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="index.html">PlasmaZen</a>
+        </div>
+        <div class="menu">
+            <a href="about.html">About</a>
+            <a href="technology.html">Technology</a>
+            <a href="applications.html">Applications</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <section class="main">
+        <h1>Contact Us</h1>
+        <p>We'd love to hear from you! Whether you have a question about our plasma technology, our applications, or anything else, feel free to reach out using the contact details below.</p>
+
+        <div class="contact-info">
+            <!-- Email Section -->
+            <div>
+                <h2>Email Us</h2>
+                <p>For any queries or questions, you can reach us at:</p>
+                <p><a href="mailto:inquiries@plasmazen.com">inquiries@plasmazen.com</a></p>
+            </div>
+
+            <!-- Phone Section -->
+            <div>
+                <h2>Call Us</h2>
+                <p>We're available at:</p>
+                <p><a href="tel:+919909825386">+91 99098 25386</a></p>
+            </div>
+
+            <!-- Address Section -->
+            <div>
+                <h2>Our Address</h2>
+                <p>PlasmaZen Headquarters</p>
+                <p>Shapath 1, Suite # 1296</p>
+                <p>SG Highway, Bodakdev</p>
+                <p>Ahmedabad, Gujarat, India - 380054</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 PlasmaZen. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

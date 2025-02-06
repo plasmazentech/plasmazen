@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PlasmaZen - About Us</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            padding: 15px 20px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .menu {
+            display: block;
+        }
+
+        /* Tight spacing for the header */
+        @media (max-width: 767px) {
+            nav {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 0;
+                margin: 0;
+            }
+
+            .logo {
+                padding-left: 0px;
+                margin: 0;
+            }
+
+            .menu {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 1px;
+                justify-items: center;
+                align-items: center;
+                margin-left: 0px;
+                padding: 0;
+            }
+
+            nav a {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 0px 0;
+                margin: 0;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: none;
+            }
+
+                nav a:hover {
+                    background-color: #f0f0f0;
+                }
+        }
+
+        /* Existing styles for larger screens */
+        @media (min-width: 768px) {
+            .menu {
+                display: flex;
+                justify-content: flex-end;
+                gap: 20px;
+                padding-right: 30px;
+                padding-left: 20px;
+            }
+        }
+
+        nav a {
+            color: #333;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #4CAF50;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        /* Main Section */
+        .main {
+            padding: 120px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .main h1 {
+            font-size: 3rem;
+            color: #4CAF50;
+            letter-spacing: 0.1em;
+            margin-bottom: 40px;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .main p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeIn 1.2s ease-out;
+        }
+
+        /* Join the Team Section */
+        .join-team {
+            margin-bottom: 60px;
+            animation: fadeIn 1.3s ease-out;
+        }
+
+        .join-team a {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .join-team a:hover {
+            background-color: #2f8a35;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Team Section */
+        .team-header {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 10px; /* Reduced gap */
+            animation: fadeInDown 1.3s ease-out;
+        }
+
+        .team-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 40px;
+            text-align: center;
+        }
+
+        .team-member {
+            width: 100%;
+            max-width: 420px; /* Increased max-width for longer names */
+            padding: 30px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1.4s ease-out;
+        }
+
+        .team-member:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .team-member img {
+            width: 75%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .team-member h2 {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 5px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+        .team-member h2 + a {
+            display: inline-block;
+            vertical-align: middle;
+            margin-left: 5px;
+        }
+
+        .linkedin-icon {
+            width: 30px !important;
+    height: 30px !important;
+            transition: opacity 0.8s ease;
+        }
+
+        .team-member h3 {
+            font-size: 1.4rem;
+            color: #4CAF50;
+            margin-bottom: 15px;
+        }
+
+        .team-member p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Behind the Scenes Section */
+        .behind-scenes {
+            margin-top: 60px;
+            padding: 0 20px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        .behind-scenes h3 {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 30px;
+        }
+
+        .behind-scenes p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 40px;
+        }
+        
+        .group-image-section {
+            padding: 20px;
+            text-align: center;
+            margin-top: 40px;
+            animation: fadeIn 1.6s ease-out;
+        }
+
+        .group-image-section img {
+            width: 100%;
+            max-width: 800px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            background: white;
+            color: #333;
+            text-align: center;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+            margin-top: 60px;
+            animation: fadeIn 1.5s ease-out;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main h1 {
+                font-size: 2.5rem;
+            }
+
+            .team-section {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .team-member {
+                width: 100%;
+                max-width: 90%;
+            }
+
+            .team-member h2,
+            .team-member h2 + a {
+                display: block;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="index.html">PlasmaZen</a>
+        </div>
+        <div class="menu">
+            <a href="about.html">About</a>
+            <a href="technology.html">Technology</a>
+            <a href="applications.html">Applications</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <section class="main">
+        <h1>About PlasmaZen</h1>
+        <p>PlasmaZen is a deep-tech startup at the forefront of Non-Thermal  Plasma technology. We engineer specialised plasma instruments that drive innovation across agriculture, surface sterilization, wastewater management, and healthcare.</p>
+
+        <!-- Join the Team Box -->
+        <div class="join-team">
+            <a href="join.html">Join the Team</a>
+        </div>
+    </section>
+
+    <!-- Core Team Section Header -->
+    <section class="main">
+        <h2 class="team-header">Meet the Core Team</h2>
+    </section>
+
+    <!-- Core Team Section -->
+    <section class="team-section">
+        <!-- CEO Section -->
+        <div class="team-member">
+            <img src="images/ceo.jpg" alt="Kamalesh Khanna, CEO Image">
+            <h2>Kamalesh Khanna</h2>
+            
+            <h3>Co-Founder and CEO
+<a href="https://linkedin.com/in/kamaleshkhanna" target="_blank">
+                <img class="linkedin-icon" src="images/linkedin-icon.png" alt="LinkedIn">
+            </a> 
+</h3>
+            <p>An NIT Trichy alumnus with a B.Tech. in Computer Science Engineering, Kamalesh blends leadership and operational acumen. His experience as School and College President established a strong foundation for strategic initiatives, while his role as a political consultant refined his ability to navigate complex political landscapes.</p>
+        </div>
+
+        <!-- CTO Section -->
+        <div class="team-member">
+            <img src="images/cto.jpg" alt="Shubhabroto Mukherjee, CTO Image">
+            <h2>Shubhabroto Mukherjee</h2>
+            
+            <h3>Co-Founder and CTO
+<a href="https://linkedin.com/in/shubhabroto" target="_blank">
+                <img class="linkedin-icon" src="images/linkedin-icon.png" alt="LinkedIn">
+            </a> 
+
+	    </h3>
+            <p>Born into a family of plasma physicists, Shubhabroto gravitated toward the world of plasma from an early age. His passion led him to study Electrical and Electronics Engineering at NIT Trichy. Founding PlasmaZen is the realization of his vision to bring plasma technology from the lab to real-world applications for a more sustainable future.</p>
+        </div>
+    </section>
+
+    <!-- Behind the Scenes Section -->
+    <section class="behind-scenes">
+        <h3>Behind the Scenes</h3>
+        <p>PlasmaZen's innovations arise from the close collaboration of experts in plasma physics, materials science, power electronics, embedded control systems, surface electrochemistry, and fluid dynamics</p>
+    </section>
+
+    <!-- Group Image Section -->
+    <section class="group-image-section">
+    <img src="images/group-photo.jpg" alt="PlasmaZen Team Group Photo">
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 PlasmaZen. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

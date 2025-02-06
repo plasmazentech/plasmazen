@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Join the Team - PlasmaZen Careers</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+            background-color: #f7f7f7;
+            color: #333;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            padding: 15px 20px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .menu {
+            display: block;
+        }
+
+        /* Tight spacing for the header */
+        @media (max-width: 767px) {
+            nav {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 0;
+                margin: 0;
+            }
+
+            .logo {
+                padding-left: 0px;
+                margin: 0;
+            }
+
+            .menu {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 1px;
+                justify-items: center;
+                align-items: center;
+                margin-left: 0px;
+                padding: 0;
+            }
+
+            nav a {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 0px 0;
+                margin: 0;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: none;
+            }
+
+                nav a:hover {
+                    background-color: #f0f0f0;
+                }
+        }
+
+        /* Existing styles for larger screens */
+        @media (min-width: 768px) {
+            .menu {
+                display: flex;
+                justify-content: flex-end;
+                gap: 20px;
+                padding-right: 30px;
+                padding-left: 20px;
+            }
+        }
+
+        nav a {
+            color: #333;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background-color: #4CAF50;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.3s ease;
+        }
+
+        nav a:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        nav a:hover {
+            color: #4CAF50;
+        }
+
+        /* Main Section */
+        .main {
+            padding: 120px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .main h1 {
+            font-size: 3rem;
+            color: #4CAF50;
+            margin-bottom: 40px;
+        }
+
+        .main p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 40px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Job Listing Container */
+        .job-listing {
+            margin-bottom: 30px;
+        }
+
+        .job-header {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .job-header:hover {
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            background-color: #f0f4c3;
+        }
+
+        .job-header h2 {
+            font-size: 1.8rem;
+            color: #4CAF50;
+            margin: 0;
+        }
+
+        .job-header h3 {
+            font-size: 1.2rem;
+            color: #333;
+            margin: 10px 0;
+        }
+
+        /* Arrow Icon */
+        .arrow-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .rotate {
+            transform: rotate(90deg); /* Rotate arrow when expanded */
+        }
+
+        /* Job Details Section */
+        .job-details {
+            display: none;
+            background-color: white;
+            padding: 30px;
+            margin-top: 10px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: left; /* Left-align the job descriptions */
+        }
+
+        .job-details ul {
+            list-style-type: disc;
+            padding-left: 20px;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .job-details ul li {
+            margin-bottom: 10px;
+        }
+
+        .job-details p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .job-details h3 {
+            font-size: 1.4rem;
+            color: #4CAF50;
+            margin-bottom: 10px;
+        }
+
+        /* Apply Section */
+        .apply-section {
+            background-color: #f0f4c3;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .apply-section h2 {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 20px;
+        }
+
+        .apply-section p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        .apply-section a {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #4CAF50;
+            color: #fff;
+            font-size: 1.2rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .apply-section a:hover {
+            background-color: #2f8a35;
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Footer */
+        footer {
+            padding: 20px;
+            background: white;
+            color: #333;
+            text-align: center;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+            margin-top: 60px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .main h1 {
+                font-size: 2.5rem;
+            }
+
+            .job-header h2 {
+                font-size: 1.6rem;
+            }
+
+            .job-details h3 {
+                font-size: 1.3rem;
+            }
+
+            .apply-section h2 {
+                font-size: 1.8rem;
+            }
+
+            .apply-section p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+
+    <script>
+        // Job Details Toggle Script
+        document.addEventListener("DOMContentLoaded", function () {
+            const jobHeaders = document.querySelectorAll(".job-header");
+
+            jobHeaders.forEach(header => {
+                header.addEventListener("click", function () {
+                    const jobDetails = this.nextElementSibling;
+                    const arrow = this.querySelector(".arrow-icon");
+                    const isOpen = jobDetails.style.display === "block";
+
+                    // Close all open job details
+                    document.querySelectorAll(".job-details").forEach(detail => {
+                        detail.style.display = "none";
+                    });
+
+                    // Rotate all arrows back to original position
+                    document.querySelectorAll(".arrow-icon").forEach(icon => {
+                        icon.classList.remove("rotate");
+                    });
+
+                    // Toggle the clicked job's details and arrow rotation
+                    if (!isOpen) {
+                        jobDetails.style.display = "block";
+                        arrow.classList.add("rotate");
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="index.html">PlasmaZen</a>
+        </div>
+        <div class="menu">
+            <a href="about.html">About</a>
+            <a href="technology.html">Technology</a>
+            <a href="applications.html">Applications</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <section class="main">
+        <h1>Join the PlasmaZen Revolution!</h1>
+        <p><strong><em>The future isn’t just approaching—it’s being forged right now!</em></strong></p>
+        <p>If you believe in pushing the frontiers of what’s possible, we invite you to explore our current job openings below. Together, let’s redefine the present!</p>
+
+        <!-- Job Posting for Embedded Systems Engineer -->
+        <div class="job-listing">
+            <div class="job-header">
+                <h2>Embedded Systems Engineer</h2>
+                <h3>Location: Ahmedabad, Gujarat</h3>
+                <span class="arrow-icon">&#9654;</span> <!-- Arrow icon -->
+            </div>
+            <div class="job-details">
+                <h3>Key Responsibilities:</h3>
+                <ul>
+                    <li>Develop and maintain firmware for microcontrollers.</li>
+                    <li>Design hardware interfaces and low-level drivers for peripherals.</li>
+                    <li>Implement communication protocols for system integration.</li>
+                    <li>Optimize software for performance, reliability, and safety.</li>
+                    <li>Document technical specifications and ensure compliance with safety standards.</li>
+                </ul>
+                <h3>Required Skills and Experience:</h3>
+                <ul>
+                    <li>Expertise in C/C++ programming and embedded software design patterns.</li>
+                    <li>Experience with ARM-based microcontrollers (NXP, STMicroelectronics, Infineon).</li>
+                    <li>Proficient in Eclipse-based GCC & GDB toolchains.</li>
+                    <li>Familiarity with RTOS (FreeRTOS, Zephyr) and middleware integration (USB, Ethernet, wireless).</li>
+                    <li>Strong knowledge of communication protocols (CAN, SPI, I2C, UART, Ethernet).</li>
+                    <li>Understanding of IoT security standards (Arm's Platform Security Architecture).</li>
+                    <li>Proficient with hardware debugging tools (JTAG, SWD, oscilloscopes, logic analyzers).</li>
+                    <li>Experience in firmware updates and bootloader development.</li>
+                    <li>Knowledge of embedded system safety and reliability practices.</li>
+                    <li>Familiarity with version control systems (Git).</li>
+                    <li>Understanding of EMC/EMI considerations in embedded design.</li>
+                    <li>Excellent problem-solving and communication skills.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Job Posting for Power Electronics Engineer -->
+        <div class="job-listing">
+            <div class="job-header">
+                <h2>Power Electronics Engineer</h2>
+                <h3>Location: Ahmedabad, Gujarat</h3>
+                <span class="arrow-icon">&#9654;</span> <!-- Arrow icon -->
+            </div>
+            <div class="job-details">
+                <h3>Key Responsibilities:</h3>
+                    <ul>
+                        <li>Design high-efficiency power conversion systems for non-thermal plasma using resonant converters and synchronous rectifiers.</li>
+                        <li>Develop analog/digital circuits for power management with phase-shift modulation and active clamping.</li>
+                        <li>Integrate power electronics with DSP and FPGA control algorithms for real-time optimization.</li>
+                        <li>Optimize power systems for power density, thermal performance, and fault tolerance, ensuring safety compliance.</li>
+                        <li>Conduct simulations and validation using Monte Carlo analysis and thermal modeling.</li>
+
+                    </ul>
+                    <h3>Required Skills and Experience:</h3>
+                    <ul>
+                        <li>Degree in Electrical Engineering, specializing in Power Electronics.</li>
+                        <li>Expertise in high-power electronics design for plasma systems with dynamic modeling knowledge.</li>
+                        <li>Proficient in SPICE, PLECS, MATLAB/Simulink for circuit optimization.</li>
+                        <li>Experience with DC-DC converters, inverters, and rectifiers using wide bandgap semiconductors like SiC/GaN.</li>
+                        <li>Strong grasp of thermal management, EMI suppression, and grounding techniques.</li>
+                        <li>Skilled in PCB layout for high-frequency applications, ensuring signal integrity.</li>
+                        <li>Familiarity with IEC, UL, and IPC standards.</li>
+                        <li>Strong analytical and problem-solving skills for innovative solutions.</li>
+                    </ul>
+</div>
+        </div>
+
+        <!-- Apply Section -->
+        <div class="apply-section">
+            <h2>Interested in Joining Us?</h2>
+            <p>We’d love to hear from you! Please send your resume and cover letter to <strong>careers@plasmazen.com</strong> to apply for these positions or express your interest in future opportunities.</p>
+            <p>Be sure to include details about your experience and how you see yourself contributing to PlasmaZen’s mission to advance plasma technology.</p>
+            <a href="mailto:careers@plasmazen.com">Apply Now</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 PlasmaZen. All Rights Reserved.
+    </footer>
+
+</body>
+</html>

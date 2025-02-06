@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PlasmaZen - Applications of Plasma Technology</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #333;
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: white;
+            padding: 15px 20px;
+            color: #333;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+        }
+
+        .menu {
+            display: block;
+        }
+
+        /* Tight spacing for the header */
+        @media (max-width: 767px) {
+            nav {
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding: 0;
+                margin: 0;
+            }
+
+            .logo {
+                padding-left: 0px;
+                margin: 0;
+            }
+
+            .menu {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 1px;
+                justify-items: center;
+                align-items: center;
+                margin-left: 0px;
+                padding: 0;
+            }
+
+            nav a {
+                display: block;
+                width: 100%;
+                text-align: center;
+                padding: 0px 0;
+                margin: 0;
+                background-color: #fff;
+                border-radius: 10px;
+                box-shadow: none;
+            }
+
+                nav a:hover {
+                    background-color: #f0f0f0;
+                }
+        }
+
+        /* Existing styles for larger screens */
+        @media (min-width: 768px) {
+            .menu {
+                display: flex;
+                justify-content: flex-end;
+                gap: 20px;
+                padding-right: 30px;
+                padding-left: 20px;
+            }
+        }
+
+        nav a {
+            color: #333;
+            margin: 0 20px;
+            text-decoration: none;
+            font-size: 1rem;
+            font-weight: bold;
+            letter-spacing: 0.05em;
+            position: relative;
+            padding-bottom: 5px;
+            transition: color 0.3s ease;
+        }
+
+            nav a::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                height: 2px;
+                background-color: #4CAF50;
+                transform: scaleX(0);
+                transform-origin: right;
+                transition: transform 0.3s ease;
+            }
+
+            nav a:hover::after {
+                transform: scaleX(1);
+                transform-origin: left;
+            }
+
+            nav a:hover {
+                color: #4CAF50;
+            }
+
+        /* Main Section */
+        .main {
+            padding: 120px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+            .main h1 {
+                font-size: 3rem;
+                color: #4CAF50;
+                letter-spacing: 0.1em;
+                text-align: center;
+                margin-bottom: 40px;
+            }
+
+        .application-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 60px;
+            flex-wrap: nowrap; /* Ensure items stay side by side */
+        }
+
+            .application-row:nth-child(even) .tile {
+                order: 2;
+            }
+
+            .application-row:nth-child(even) .application-image {
+                order: 1;
+            }
+
+        .tile {
+            flex-basis: 48%; /* Ensure that the tile takes up 48% of the row */
+            padding: 30px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+            .tile h2 {
+                font-size: 1.8rem;
+                color: #333;
+                margin-bottom: 20px;
+            }
+
+            .tile p {
+                font-size: 1.1rem;
+                line-height: 1.8;
+                color: #666;
+                text-align: justify;
+            }
+
+            .tile:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            }
+
+        .application-image {
+            flex-basis: 48%; /* Ensure that the image container takes up 48% of the row */
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+            .application-image img {
+                width: 100%;
+                height: 300px; /* Fixed height for uniform image dimensions */
+                object-fit: cover; /* Ensure images fill the area without distortion */
+                border-radius: 8px;
+                transition: transform 0.3s ease;
+            }
+
+                .application-image img:hover {
+                    transform: scale(1.02);
+                }
+
+        footer {
+            padding: 20px;
+            background: white;
+            color: #333;
+            text-align: center;
+            font-size: 0.9rem;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+            margin-top: 60px;
+            opacity: 0;
+            animation: fadeInUp 1s ease-out forwards;
+            animation-delay: 0.5s;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .main h1 {
+                font-size: 2.5rem;
+            }
+
+            .application-row {
+                flex-direction: column;
+                flex-wrap: nowrap; /* Stacks items vertically on mobile */
+            }
+
+            .tile,
+            .application-image {
+                width: 100%; /* Take full width on smaller screens */
+                order: initial;
+            }
+
+            /* Change the order to display image first and text second */
+            .application-row .application-image {
+                order: 1;
+            }
+
+            .application-row .tile {
+                order: 2;
+            }
+
+            .application-image img {
+                height: auto; 
+            }
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="logo">
+            <a href="index.html">PlasmaZen</a>
+        </div>
+        <div class="menu">
+            <a href="about.html">About</a>
+            <a href="technology.html">Technology</a>
+            <a href="applications.html">Applications</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Main Section -->
+    <section class="main">
+        <h1>Applications of Cold Plasma Technology</h1>
+
+        <!-- Agriculture Section -->
+        <div class="application-row">
+            <div class="tile">
+                <h2>Agriculture</h2>
+                <p>Cold plasma enhances agricultural productivity by stimulating seed germination through plasma-induced modification of seed coat permeability and activation of phytohormonal pathways. It also extends shelf life by inactivating microbes on produce surfaces via reactive oxygen and nitrogen species, thus reducing post-harvest losses and improving produce longevity.</p>
+            </div>
+            <div class="application-image">
+                <img src="images/agriculture.jpg" alt="Agriculture Plasma Applications">
+            </div>
+        </div>
+
+        <!-- Wastewater Treatment Section -->
+        <div class="application-row">
+            <div class="tile">
+                <h2>Wastewater Management</h2>
+                <p>Advanced wastewater management is achieved by mineralizing persistent organic contaminants, reducing metal ion concentrations, and comprehensive microbial inactivation. Applications span industrial effluent treatment, municipal wastewater purification, and remediation of pharmaceutical and agrochemical pollutants.</p>
+            </div>
+            <div class="application-image">
+                <img src="images/wastewater.jpg" alt="Wastewater Plasma Applications">
+            </div>
+        </div>
+
+        <!-- Surface Sterilization Section -->
+        <div class="application-row">
+            <div class="tile">
+                <h2>Surface Sterilization</h2>
+                <p>Plasma sterilization is effective in medical and industrial settings for the decontamination of instruments and surfaces, particularly those sensitive to heat and moisture. This non-contact chemical-free method delivers rapid, efficient sterilization while preserving the integrity of materials, making it a safe, fast, and highly effective disinfection solution.</p>
+            </div>
+            <div class="application-image">
+                <img src="images/sterilization.jpg" alt="Surface Sterilization Plasma Applications">
+            </div>
+        </div>
+
+        <!-- Healthcare Section -->
+        <div class="application-row">
+            <div class="tile">
+                <h2>Healthcare</h2>
+                <p>
+                    Non-thermal plasma has broad applications in healthcare, particularly in painless wound healing, where it accelerates tissue regeneration, stimulates angiogenesis, and inactivates pathogens without damaging surrounding cells. Its use extends to dental sterilization, biofilm disruption, and dermatological treatments, including acne and psoriasis. Furthermore, its selective cytotoxic effects make it promising for targeted cancer therapies.
+                </p>
+            </div>
+            <div class="application-image">
+                <img src="images/healthcare.jpg" alt="Healthcare Plasma Applications">
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        &copy; 2024 PlasmaZen. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
